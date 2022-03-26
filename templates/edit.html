@@ -1,0 +1,16 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Edit Ratings{% endblock %}
+
+{% block content %}
+  <p>Book Name: {{book.title}}</p>
+  <br>
+  <p>Current Rating: {{book.rating}}</p>
+  <br>
+  <form action="{{url_for('edit')}}" method="post">
+    <input hidden="hidden" name="id" value="{{book.id}}">
+    <input type="text" name="rating" placeholder="New Rating">
+    <button type="submit">Update Rating</button>
+  </form>
+{% endblock %}
